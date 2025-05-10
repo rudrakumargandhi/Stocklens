@@ -23,5 +23,10 @@
         "portfolio": [
             "JUSTDIAL"
         ]
+    },
+    "rudra": {
+        "password": "neharika",
+        "role": "user",
+        "portfolio": []
     }
 }
