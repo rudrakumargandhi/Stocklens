@@ -1,0 +1,27 @@
+{
+    "admin": {
+        "password": "admin123",
+        "role": "admin",
+        "portfolio": []
+    },
+    "user1": {
+        "password": "user123",
+        "role": "user",
+        "portfolio": [
+            "RELIANCE",
+            "SONATSOFTW"
+        ]
+    },
+    "avleen.kaur": {
+        "password": "rudra@123",
+        "role": "user",
+        "portfolio": []
+    },
+    "pathaan": {
+        "password": "jagsaara",
+        "role": "user",
+        "portfolio": [
+            "JUSTDIAL"
+        ]
+    }
+}

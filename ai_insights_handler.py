@@ -16,7 +16,14 @@ class AIInsights:
                 "Relative Strength Index (RSI), and MACD indicators. Based on this data, provide an analysis, "
                 "highlight patterns, trends, and give a recommendation on whether this stock should be bought, held, or sold."
             )
+
             response = self.model.generate_content([prompt, image])
-            return response
+
+        # ✅ Extract the actual content text
+            if response and response.candidates:
+                return response.candidates[0].content.parts[0].text
+            else:
+                return "No insights generated."
+
         except Exception as e:
             raise ValueError(f"Error generating AI insights: {e}")
