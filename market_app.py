@@ -147,10 +147,34 @@ def analysis_page():
         fig = analyzer.plot_stock_data(df, ticker, market, image_path)
         st.pyplot(fig)
 
+        st.subheader("📚 Fundamental Analysis")
+
+        try:
+            fundamental_data = stock_api.get_fundamental_data(ticker)
+
+            selected_fields = {
+                "Name": fundamental_data.get("Name", "N/A"),
+                "Sector": fundamental_data.get("Sector", "N/A"),
+                "MarketCapitalization": fundamental_data.get("MarketCapitalization", "N/A"),
+                "PERatio": fundamental_data.get("PERatio", "N/A"),
+                "EPS": fundamental_data.get("EPS", "N/A"),
+                "DividendYield": fundamental_data.get("DividendYield", "N/A"),
+                "ReturnOnEquityTTM": fundamental_data.get("ReturnOnEquityTTM", "N/A"),
+                "RevenueTTM": fundamental_data.get("RevenueTTM", "N/A"),
+                "ProfitMargin": fundamental_data.get("ProfitMargin", "N/A"),
+                "52WeekHigh": fundamental_data.get("52WeekHigh", "N/A"),
+                "52WeekLow": fundamental_data.get("52WeekLow", "N/A"),
+            }
+
+            for k, v in selected_fields.items():
+                st.markdown(f"**{k.replace('_', ' ')}:** {v}")
+        except Exception as e:
+            st.warning(f"Could not load fundamentals: {e}")
+
         st.subheader("AI Insights")
 
         with st.spinner("Generating AI Insights..."):
-            insights = ai_insights_obj.get_ai_insights(image_path, ticker, market)
+            insights = ai_insights_obj.get_ai_insights(image_path, ticker, market, fundamentals=selected_fields)
             st.markdown(insights)
 
     except Exception as e:

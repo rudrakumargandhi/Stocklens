@@ -15,6 +15,16 @@ class StockAPI:
     def __init__(self, api_key=ALPHA_VANTAGE_API_KEY):
         self.api_key = api_key
 
+    
+    def get_fundamental_data(self, symbol):
+        url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={self.api_key}"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception("Failed to fetch fundamental data.")
+    
+
     def get_live_price(self, stock, market="BSE"):
         import requests
 
