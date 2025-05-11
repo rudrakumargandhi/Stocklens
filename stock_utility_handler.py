@@ -9,7 +9,7 @@ import requests
 from matplotlib.widgets import Cursor
 
 # Your API Key for Alpha Vantage
-ALPHA_VANTAGE_API_KEY = "WPKRZRI7UK096O5E"
+ALPHA_VANTAGE_API_KEY = "5BPONE0YQY8ZH17G"
 
 class StockAPI:
     def __init__(self, api_key=ALPHA_VANTAGE_API_KEY):
