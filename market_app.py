@@ -7,7 +7,7 @@ import os
 output_dir = "D:/Bollinger_analysis/images"
 os.makedirs(output_dir, exist_ok=True)
 # === Constants ===
-ALPHA_VANTAGE_KEY = "WPKRZRI7UK096O5E"
+ALPHA_VANTAGE_KEY = "5BPONE0YQY8ZH17G"
 GOOGLE_API_KEY = "AIzaSyAIFQijh_mCe9tyU70jY8M_d--pAh8Ux9A"
 
 # === Session State Initialization ===
